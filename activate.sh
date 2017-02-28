@@ -1,0 +1,1 @@
+source eclipseenv/bin/activate
