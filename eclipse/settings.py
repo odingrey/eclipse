@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework',
+    'eclipse',
 ]
 
 MIDDLEWARE = [
@@ -76,6 +76,7 @@ REST_FRAMEWORK = {
 }
 
 WSGI_APPLICATION = 'eclipse.wsgi.application'
+AUTH_USER_MODEL = "eclipse.EclipseUser"
 
 
 # Database
