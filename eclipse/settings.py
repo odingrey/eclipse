@@ -25,7 +25,9 @@ SECRET_KEY = '+dw)g9=!y!mvjsy66i9akxz=yf*6ot+w&t_0_!wu1ph(6vfpf)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['45.56.88.91', '127.0.0.1']
+ALLOWED_HOSTS = ['45.56.88.91']
+if DEBUG:
+    ALLOWED_HOSTS.append('127.0.0.1')
 
 
 # Application definition
@@ -37,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-#    'eclipse',
+    'eclipse',
 ]
 
 MIDDLEWARE = [

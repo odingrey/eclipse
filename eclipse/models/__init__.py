@@ -1,1 +1,1 @@
-#from .eclipseuser import EclipseUser
+from .ship import Ship
