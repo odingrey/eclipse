@@ -25,7 +25,7 @@ SECRET_KEY = '+dw)g9=!y!mvjsy66i9akxz=yf*6ot+w&t_0_!wu1ph(6vfpf)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['45.56.88.91']
+ALLOWED_HOSTS = ['45.56.88.91', '127.0.0.1']
 
 
 # Application definition
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'eclipse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['eclipse/eclipse/templates'],
+        'DIRS': ['eclipse/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
