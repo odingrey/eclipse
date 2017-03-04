@@ -55,7 +55,7 @@ ROOT_URLCONF = 'eclipse.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['eclipse/templates'],
+        'DIRS': ['eclipse/templates', 'eclipse/eclipse/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
