@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="static/css/base.css" />
+    <script src="static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <title>{% block title %}Eclipse{% endblock %}</title>
 </head>
 
 <body>
-    <div id="sidebar">
-        {% block sidebar %}
-		<div class="navbar navbar-inverse navbar-fixed-left">
-			<a class="navbar-brand" href="#">Eclipse</a>
-			<ul class="nav navbar-nav">
-				<li><a href="#">Stuff</a></li>
-				<li><a href="#">Things</a></li>
-				<li><a href="logout">Logout</a></li>
-			</ul>
-		</div>
-        {% endblock %}
-    </div>
+	{% block sidebar %}
+		Sidebar goes here
+	{% endblock %}
 
-    <div id="content">
-        {% block content %}{% endblock %}
-    </div>
+	<div>
+		Content goes here	
+		{% block content %}{% endblock %}
+	</div>
 </body>
 </html
+
