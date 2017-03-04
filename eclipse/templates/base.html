@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="/static/style.css" />
+    <title>{% block title %}Eclipse{% endblock %}</title>
+</head>
+
+<body>
+    <div id="sidebar">
+        {% block sidebar %}
+		<div class="navbar navbar-inverse navbar-fixed-left">
+			<a class="navbar-brand" href="#">Eclipse</a>
+			<ul class="nav navbar-nav">
+				<li><a href="#">Stuff</a></li>
+				<li><a href="#">Things</a></li>
+				<li><a href="logout">Logout</a></li>
+			</ul>
+		</div>
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html

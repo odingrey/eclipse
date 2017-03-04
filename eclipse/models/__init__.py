@@ -1,1 +1,1 @@
-from .eclipseuser import EclipseUser
+#from .eclipseuser import EclipseUser

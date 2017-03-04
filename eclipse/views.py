@@ -9,19 +9,8 @@ from django.http import JsonResponse
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 
-from forms.register import UserRegistrationForm
-from forms.user import UserProfile
 
-
-@login_required(login_url='/login/')
-def index(request):
-		return render(request, 'index.html')
-
-@login_required(login_url='/login/')
-def main(request):
-	if user.is_authenticated():
-		return render(request, 'main.html')
-	return HttpResponseRedirect('/login')
+# API Calls
 
 
 def loginUser(request):
@@ -42,31 +31,19 @@ def loginUser(request):
 			else:
 				return HttpResponse('401') #Unauthorized (IE, bad username and password)
 		else:
-				return render(request, 'login.html')
+			return render(request, 'login.html')
 
 
-def register(request):
-		#TODO(mike): Redirect failed registration into correct window instead of new one
-		registered = False
-		if request.method == 'POST':
-			user_form = UserRegistrationForm(data=request.POST)	 #Fills form with POST data
-			profile_form = UserProfile(data=request.POST)
-			if user_form.is_valid() and profile_form.is_valid():
-				user = user_form.save()
-				user.save()						#saves new user
-				profile = profile_form.save(commit=False)
-				profile.user = user
-				profile.save()					# saves new user profile
-				registered = True
-			else:
-				print(user_form.errors, profile_form.errors)	 #Will output to apache's error.log
 
-		else:
-			user_form = UserRegistrationForm() #creates forms to pass to the front end for filling out
-			profile_form = UserProfile()
 
-		return render(request, 'register.html', {'user_form': user_form, 'profile_form': profile_form, 'registered': registered})
+#Django Rendering
+	
+@login_required
+def main(request):
+	return render(request, 'main.html')
 
+
+@login_required
 def settings(request):
 	if request.user.is_authenticated():
 		if request.method == 'POST':
@@ -78,3 +55,5 @@ def settings(request):
 			profile_form = UserProfile();
 			return render(request, 'settings.html', {'profile_form': profile_form})
 	return HttpResponse(status = 401) # Not Authenticated
+
+
