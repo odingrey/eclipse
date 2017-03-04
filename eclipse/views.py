@@ -42,6 +42,8 @@ def loginUser(request):
 def main(request):
 	return render(request, 'main.html')
 
+def password_reset(request):
+	return render(request,'password_reset.html')
 
 @login_required
 def settings(request):

@@ -1,0 +1,11 @@
+<h1>Register with Eclipse</h1>
+{% if registered %}
+	<strong>Thank you for registering!</strong>
+	<a href="/">Return to the homepage.</a><br />
+{% else %}
+	<form method="POST" action="">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" name="submit" value="Register" />
+	</form>
+{% endif %}

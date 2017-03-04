@@ -9,12 +9,15 @@
 </head>
 
 <body>
+	<div class="col-sm-4">
 	{% block sidebar %}
-		Sidebar goes here
+		<ul>
+		<li><a href="/">Home</a></li>
+		<li><a href="/logout">Logout</a></li>
+		</ul>
 	{% endblock %}
-
-	<div>
-		Content goes here	
+	</div>
+	<div class="col-sm-8">
 		{% block content %}{% endblock %}
 	</div>
 </body>
