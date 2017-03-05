@@ -14,9 +14,9 @@ admin.autodiscover()
 
 urlpatterns = [
 	url(r'^$', views.main),
-        url(r'^admin/', admin.site.urls),
-        url(r'^login/$', login, name='login'),
-        url(r'^logout/$', logout),
+    url(r'^admin/', admin.site.urls),
+    url(r'^login/$', login, name='login'),
+    url(r'^logout/$', logout),
 	url(r'^register/', CreateView.as_view(
 		template_name='registration/register.html',
 		form_class=UserCreationForm,
@@ -28,4 +28,6 @@ urlpatterns = [
 		template_name='welcome.html'
 	)),
 	url('^accounts/', include('django.contrib.auth.urls')),   # Remove this bit after a while, useful for now
+
+	url(r'^buy_ship/$', views.addTest),
 ]
