@@ -8,7 +8,7 @@ from django.http import JsonResponse
 
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-import ships
+from managers.ship_manager import ShipManager
 
 
 # API Calls
@@ -34,6 +34,7 @@ def loginUser(request):
 		else:
 			return render(request, 'login.html')
 
+################################  
 @login_required
 def addTest(request):
 	try:
@@ -42,7 +43,7 @@ def addTest(request):
 	except e:
 		print e
 		return HttpResponse('500')
-
+###############################
 
 
 #Django Rendering

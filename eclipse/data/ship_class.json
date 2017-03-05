@@ -1,0 +1,11 @@
+{
+	"transport" : [
+		{
+		"class_name" : "Firefly",
+		"race" : "Human",
+		"description" : "Does stuff",
+		"powergrid" : 100,
+		"base_hp" : 100,
+		}
+	]
+}

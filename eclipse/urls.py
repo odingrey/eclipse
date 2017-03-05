@@ -29,5 +29,6 @@ urlpatterns = [
 	)),
 	url('^accounts/', include('django.contrib.auth.urls')),   # Remove this bit after a while, useful for now
 
-	url(r'^buy_ship/$', views.addTest),
+	# API Calls
+	#url(r'^buy_ship/$', views.addTest),
 ]
