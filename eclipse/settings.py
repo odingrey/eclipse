@@ -132,3 +132,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, "eclipse/static/")
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+FIXTURE_DIRS = ['eclipse/fixtures']

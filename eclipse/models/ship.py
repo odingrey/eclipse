@@ -2,13 +2,21 @@ from django.contrib.auth.models import User
 from django.db import models
 
 from .spaceentity import SpaceEntity
+from .shipclass import ShipClass
 
 class Ship(SpaceEntity):
-	owner = models.ForeignKey(User)
+	name = models.CharField(max_length=100)
+	owner = models.ForeignKey(
+		User,
+		on_delete=models.CASCADE,
+		blank=True,
+		null=True
+	)
 	race = models.CharField(max_length=30)
 	description = models.CharField(max_length=300)
-	ship_class = models.CharField(max_length=30)
-	max_hp = models.FloatField()
-	current_hp = models.FloatField()
-	max_powergrid = models.FloatField()
-	current_powergrid = models.FloatField()
+	ship_class = models.ForeignKey(
+		ShipClass,
+		on_delete=models.CASCADE,
+	)
+	hull = models.FloatField()
+	powergrid = models.FloatField()

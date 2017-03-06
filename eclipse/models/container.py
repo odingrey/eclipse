@@ -6,5 +6,15 @@ from .station import Station
 class Container(models.Model):
 	owner = models.ForeignKey(User)
 	size = models.IntegerField()
-	ship_location = models.ForeignKey(Ship, blank=True, null=True)
-	station_location = models.ForeignKey(Station, blank=True, null=True)
+	ship_location = models.ForeignKey(
+		Ship,
+		on_delete=models.CASCADE,
+		blank=True,
+		null=True,
+	)
+	station_location = models.ForeignKey(
+		Station,
+		on_delete=models.CASCADE,
+		blank=True,
+		null=True,
+	)

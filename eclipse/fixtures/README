@@ -1,0 +1,2 @@
+Fixtures in order to populate data into the database.  Basically, this has info on ship clasess and planets and stuff.  To run, in the /eclipse main folder, run:
+./manage.py loaddata [fixture_name]

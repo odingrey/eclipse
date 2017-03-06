@@ -1,0 +1,20 @@
+[	
+	{
+		"model" : "eclipse.shiptype",
+		"pk" : "Small Transport",
+		"fields" : {
+			"description" : "Transports stuff"
+		}
+	}, {
+		"model" : "eclipse.shipclass",
+		"pk" : "Firefly",
+		"fields" : {
+			"ship_type": ["Small Transport"],
+			"race" : "Human",
+			"description" : "Does stuff",
+			"power" : 100,
+			"hull" : 100,
+			"cargohold" : 100
+		}
+	}
+]
