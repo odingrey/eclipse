@@ -7,13 +7,22 @@
 	  }
 	},
 	{
+	  "model": "eclipse.stationtype",
+	  "pk": "Base Type",
+	  "fields": {
+	    "description": "Does stuff"
+	  }
+	},
+	{
 	  "model": "eclipse.stationclass",
 	  "pk": "Base Class",
 	  "fields": {
-	    "race": ["Human"],
+	    "station_type": "Base Type",
+	    "race": "Human",
 	    "description": "asdf",
 	    "power": 5000.0,
-	    "hull": 5000.0
+	    "hull": 5000.0,
+	    "cargohold": 0
 	  }
 	},
 	{
@@ -25,29 +34,54 @@
 	  "model": "eclipse.planet",
 	  "pk": "Earth",
 	  "fields": {
-	    "solarsystem": ["Sol"],
+	    "solarsystem": "Sol",
 	    "x": 0.0,
 	    "y": 0.0,
 	    "z": 0.0,
-	    "race": ["Human"],
-	    "owner": null
+	    "owner": 1
 	  }
 	},
 	{
 	  "model": "eclipse.station",
 	  "pk": 1,
 	  "fields": {
-	    "solarsystem": ["Sol"],
+	    "solarsystem": "Sol",
 	    "x": 0.0,
 	    "y": 0.0,
 	    "z": 0.0,
 	    "name": "EarthDoc",
-	    "race": ["Human"],
-	    "owner": null,
-	    "planet_location": ["Earth"],
-	    "station_class": ["Base Class"],
+	    "owner": 1,
+	    "planet_location": "Earth",
+	    "station_class": "Base Class",
 	    "hull": 9000.0,
 	    "power": 9001.0
+	  }
+	},
+	{
+	  "model": "eclipse.government",
+	  "pk": "EarthGov",
+	  "fields": {
+	    "race": "Human",
+	    "description": "Trumps America"
+	  }
+	},
+	{
+	  "model": "eclipse.npc",
+	  "pk": 1,
+	  "fields": {
+	    "name": "Test Npc",
+	    "race": "Human"
+	  }
+	},
+	{
+	  "model": "eclipse.player",
+	  "pk": 1,
+	  "fields": {
+	    "user": null,
+	    "npc": null,
+	    "government": "EarthGov",
+	    "race": "Human",
+	    "location": null
 	  }
 	}
 ]

@@ -11,15 +11,11 @@ def generate_station(solar_system, x, y, z, station_class):
 		power = station_class.power,
 	)
 
-def change_owner(station, owner=null, race=null):
-	if not race and not owner:
-		raise AttributeError('Requires either an owner or race')
-	if race and owner:
-		raise AttributeError('Requires either an owner or race, not both')
-	if race:
-		station.race = race
-	elif owner:
-		station.owner = owner
+def change_owner(station, owner):
+	station.owner = owner
+
+def set_owner(station, owner):
+	change_owner(station, owner).save()
 
 
 def move_to_planet(station, planet):
@@ -34,8 +30,8 @@ def set_to_planet(station, planet):
 	station.save()
 
 
-def generate_station_on_planet(owner=null, race=null, station_class, planet):
+def generate_station_on_planet(owner, station_class, planet):
 	station = generate_station(owner, 0, 0, 0, station_class)
 	set_to_planet(station, planet)
-	change_owner(station, owner, race)
+	change_owner(station, owner)
 	return station

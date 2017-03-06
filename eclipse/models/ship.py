@@ -1,13 +1,13 @@
-from django.contrib.auth.models import User
 from django.db import models
 
+from .player import Player
 from .spaceentity import SpaceEntity
 from .shipclass import ShipClass
 
 class Ship(SpaceEntity):
 	name = models.CharField(max_length=100)
 	owner = models.ForeignKey(
-		User,
+		Player,
 		on_delete=models.CASCADE,
 		blank=True,
 		null=True

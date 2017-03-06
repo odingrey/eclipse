@@ -1,16 +1,16 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+from .planet import Planet
+from .player import Player
+from .race import Race
 from .stationclass import StationClass
 from .spaceentity import SpaceEntity
-from .planet import Planet
-from .race import Race
 
 class Station(SpaceEntity):
 	name = models.CharField(max_length=100)
-	# Either an entire race owns it, or a User
-	race = models.ForeignKey(Race, blank=True, null=True)
-	owner = models.ForeignKey(User, blank=True, null=True)
+	# TODO: Maybe keep the station?  Make it claimable?
+	owner = models.ForeignKey(Player, blank=True, null=True, on_delete=models.CASCADE)
 	# Optional planet location
 	planet_location = models.ForeignKey(
 		Planet,

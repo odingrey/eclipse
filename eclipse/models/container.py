@@ -1,10 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
+
+from .player import Player
 from .ship import Ship
 from .station import Station
 
+
 class Container(models.Model):
-	owner = models.ForeignKey(User)
+	owner = models.ForeignKey(Player, on_delete=models.CASCADE)
 	size = models.IntegerField()
 	ship_location = models.ForeignKey(
 		Ship,
