@@ -6,6 +6,12 @@
 			"description" : "Transports stuff"
 		}
 	}, {
+		"model" : "eclipse.shiptype",
+		"pk" : "Pod",
+		"fields" : {
+			"description" : "Transports stuff"
+		}
+	}, {
 		"model" : "eclipse.shipclass",
 		"pk" : "Firefly",
 		"fields" : {
@@ -14,7 +20,22 @@
 			"description" : "Does stuff",
 			"power" : 100,
 			"hull" : 100,
-			"cargohold" : 100
+			"cargohold" : 100,
+			"engine" : "eng:100",
+			"weapon_bay" : 1
+		}
+	}, {
+		"model" : "eclipse.shipclass",
+		"pk" : "Firefly",
+		"fields" : {
+			"ship_type": ["Pod"],
+			"race" : "Human",
+			"description" : "Does stuff",
+			"power" : 100,
+			"hull" : 100,
+			"cargohold" : 100,
+			"engine" : "eng:100",
+			"weapon_bay" : 1
 		}
 	}
 ]

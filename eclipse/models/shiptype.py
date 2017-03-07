@@ -10,6 +10,12 @@ class ShipType(models.Model):
 
 	name = models.CharField(max_length=30, primary_key=True, unique=True)
 	description = models.CharField(max_length=300, default="")
+	size_class = models.ForeignKey(
+		'SizeClass',
+		on_delete=models.DO_NOTHING,
+		blank=True,
+		null=True
+	)
 
 	def __unicode__(self):
 		return self.name

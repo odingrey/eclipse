@@ -1,8 +1,6 @@
 from django.db import models
 
-from .player import Player
 from .spaceentity import SpaceEntity
-from .race import Race
 
 # Allows for natural key lookup
 class PlanetManager(models.Manager):
@@ -14,7 +12,12 @@ class Planet(SpaceEntity):
 	name = models.CharField(max_length=100, primary_key=True, unique=True)
 	# Either an entire race owns it, or a Player
 	# TODO: Figure out what to do here?  Is the planet claimable?
-	owner = models.ForeignKey(Player, blank=True, null=True, on_delete=models.DO_NOTHING)
+	owner = models.ForeignKey(
+		'Player', 
+		blank=True, 
+		null=True, 
+		on_delete=models.DO_NOTHING
+	)
 
 	def __unicode__(self):
 		return self.name

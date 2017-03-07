@@ -1,0 +1,18 @@
+[	
+	{
+		"model" : "eclipse.engine",
+		"pk" : "eng:100",
+		"fields" : {
+			"name": "Pod Engine",
+			"description" : "Transports stuff",
+			"power_req" : 100.0,
+			"size_class" : 0,
+			"speed" : 100.0,
+			"jump_distance" : 0
+		}
+	}, {
+		"model" : "eclipse.weaponbay",
+		"pk" : 1,
+		"fields" : {}
+	}
+]

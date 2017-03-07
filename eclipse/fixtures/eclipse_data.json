@@ -1,0 +1,167 @@
+[
+{
+  "model": "eclipse.shipcontainer",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "size": 50
+  }
+},
+{
+  "model": "eclipse.stationcontainer",
+  "pk": 1,
+  "fields": {
+    "owner": 1,
+    "station": 1
+  }
+},
+{
+  "model": "eclipse.stationcontainer",
+  "pk": 3,
+  "fields": {
+    "owner": 1,
+    "station": 3
+  }
+},
+{
+  "model": "eclipse.government",
+  "pk": "Human Government",
+  "fields": {
+    "race": "Human",
+    "description": "Trumps America"
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Earth",
+  "fields": {
+    "solar_system": "Sol",
+    "x": 100.0,
+    "y": 100.0,
+    "z": 100.0,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Mars",
+  "fields": {
+    "solar_system": "Sol",
+    "x": 200.0,
+    "y": 200.0,
+    "z": 200.0,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.shipclass",
+  "pk": "Lifepod",
+  "fields": {
+    "ship_type": "Lifepod",
+    "race": "Human",
+    "description": "Saves Lives - Human",
+    "power": 50.0,
+    "hull": 50.0,
+    "cargosize": 50,
+    "engine": "ENG:POD-100",
+    "weapon_bay": null
+  }
+},
+{
+  "model": "eclipse.player",
+  "pk": 1,
+  "fields": {
+    "user": null,
+    "npc": null,
+    "government": "Human Government",
+    "location": null
+  }
+},
+{
+  "model": "eclipse.race",
+  "pk": "Human",
+  "fields": {
+    "description": "Total Bros"
+  }
+},
+{
+  "model": "eclipse.engine",
+  "pk": "ENG:POD-100",
+  "fields": {
+    "name": "Pod Engine",
+    "description": "Kinda sputters",
+    "power_req": 0.0,
+    "size_class": "POD",
+    "speed": 50.0,
+    "jump_distance": 0.0
+  }
+},
+{
+  "model": "eclipse.shiptype",
+  "pk": "Lifepod",
+  "fields": {
+    "description": "Saves Lives",
+    "size_class": "POD"
+  }
+},
+{
+  "model": "eclipse.sizeclass",
+  "pk": "POD",
+  "fields": {}
+},
+{
+  "model": "eclipse.solarsystem",
+  "pk": "Sol",
+  "fields": {}
+},
+{
+  "model": "eclipse.station",
+  "pk": 1,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 100.0,
+    "y": 100.0,
+    "z": 100.0,
+    "name": "Earth Spacedoc",
+    "owner": 1,
+    "planet_location": "Earth",
+    "station_class": "Planetary",
+    "hull": 9001.0,
+    "power": 9000.0
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 3,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 200.0,
+    "y": 200.0,
+    "z": 200.0,
+    "name": "Mars Spacedock",
+    "owner": 1,
+    "planet_location": "Mars",
+    "station_class": "Planetary",
+    "hull": 9000.0,
+    "power": 9001.0
+  }
+},
+{
+  "model": "eclipse.stationclass",
+  "pk": "Planetary",
+  "fields": {
+    "station_type": "Constellation",
+    "race": "Human",
+    "description": "Largest Human Station",
+    "power": 9001.0,
+    "hull": 9000.0
+  }
+},
+{
+  "model": "eclipse.stationtype",
+  "pk": "Constellation",
+  "fields": {
+    "description": "Largest possible station"
+  }
+}
+]

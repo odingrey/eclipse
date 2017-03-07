@@ -1,23 +1,25 @@
-from eclipse.models.container import Container
+from eclipse.models.container import ShipContainer, StationContainer
 
-def generate_container(owner, size):
-	return Container(
+def generate_ship_container(owner, size, ship):
+	return ShipContainer(
 		owner=owner,
-		size=size
+		size=size,
+		ship=ship
 	)
 
-# Logic to make sure only one location is saved at a time.
-def set_location(space_entity, location):
-	#  Maybe use optionals here instead?
-	if type(location) is Ship:
-		space_entity.ship_location = location
-		space_entity.station_location = null
-	elif type(location) is Station:
-		space_entity.station_location = location
-		space_entity.ship_location = null
-	space_entity.save()
+def generate_station_container(owner, station):
+	return StationContainer(
+		owner=owner,
+		station=station
+	)
 
 def set_owner(containers, owner):
 	for contain in containers:
 		container.owner = owner
 		container.save()
+
+def make_station_container(owner, station):
+	generate_station_container(owner, station).save()
+
+def make_ship_container(owner, size, ship):
+	generate_ship_container(owner, size, ship).save()

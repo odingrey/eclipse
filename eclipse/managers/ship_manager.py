@@ -5,26 +5,28 @@ import container_manager
 
 ship_classes = ShipClass.objects
 
-def generate_ship(owner, ship_class):
+def generate_ship(owner, ship_class, x, y, z, location):
 	ship = Ship(
 		owner = owner,
-		ship_name = ship_class.class_name,
+		name = ship_class.name,
 		ship_class = ship_class,
-		hull = ship_class.base_hp,
-		power = ship_class.power
+		size_class = ship_class.ship_type.size_class,
+		hull = ship_class.hull,
+		power = ship_class.power,
+		engine = ship_class.engine,
+		weapon_bay = ship_class.weapon_bay,
+		x = x,
+		y = y,
+		z = z,
+		docked_location = location
 	)
-	container = container_manager.generate_container(owner, ship_class.cargo_size)
-	container.set_location(ship)
+	return ship
 
 def set_owner(ship, owner):
-	ship.owner = new_owner
-	container_manager.set_owner(ship.container_set, owner)
+	ship.owner = owner
+	#TODO: This
+	#container_manager.set_owner(ship.container_set, owner)
 	ship.save()
 
-def make_ship(owner, ship_class, x, y, z, solar_system):
-	ship = generate_ship(ship_class)
-	ship.x = x
-	ship.y = y
-	ship.z = z
-	ship.solar_system = solar_system
-	ship.save()
+def make_ship(owner, ship_class, x, y, z, location):
+	generate_ship(owner, ship_class, x, y, z, location).save()
