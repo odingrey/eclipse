@@ -10,12 +10,6 @@ class WeaponBay(models.Model):
 
 class Ship(SpaceEntity):
 	name = models.CharField(max_length=100)
-	size_class = models.ForeignKey(
-		'SizeClass',
-		on_delete=models.DO_NOTHING,
-		blank=True,
-		null=True
-	)
 	owner = models.ForeignKey(
 		'Player',
 		on_delete=models.CASCADE,
@@ -26,8 +20,6 @@ class Ship(SpaceEntity):
 		'ShipClass',
 		on_delete=models.CASCADE,
 	)
-	hull = models.FloatField(default=0.1)
-	power = models.FloatField(default=0.1)
 	engine = models.ForeignKey(
 		'Engine',
 		on_delete=models.DO_NOTHING,
@@ -61,6 +53,12 @@ class Ship(SpaceEntity):
 
 		# If first save
 		if not self.pk:
+			# Set initial values from the ship class
+			self.owner = self.owner
+			self.engine = self.ship_class.engine
+			self.weapon_bay = self.ship_class.weapon_bay
+
+			# Create a container sized what the ship class wants, assign to ship
 			container_manager.generate_ship_container(
 				owner=self.owner,
 				size=self.ship_class.cargosize,
@@ -71,4 +69,4 @@ class Ship(SpaceEntity):
 
 
 	def __unicode__(self):
-		return str(self.owner) + ": " + self.name
+		return str(self.owner) + ": " + self.ship_class.name

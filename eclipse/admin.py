@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
 
 from eclipse.models.ammo import Crystal, Gas, Projectile, Rocket
 from eclipse.models.container import ShipContainer, StationContainer
@@ -23,17 +24,13 @@ admin.site.register(Crystal)
 admin.site.register(Gas)
 admin.site.register(Projectile)
 admin.site.register(Rocket)
-
 admin.site.register(Engine)
 admin.site.register(Laser)
 admin.site.register(Plasma)
 admin.site.register(Kinetic)
 admin.site.register(Missile)
-
 admin.site.register(ShipContainer)
 admin.site.register(StationContainer)
-admin.site.register(Government)
-admin.site.register(Npc)
 admin.site.register(Planet)
 admin.site.register(Player)
 admin.site.register(Race)
@@ -46,3 +43,23 @@ admin.site.register(SolarSystem)
 admin.site.register(Station)
 admin.site.register(StationClass)
 admin.site.register(StationType)
+
+
+
+class PlayerInline(admin.StackedInline):
+	model = Player
+
+class CustomUser(admin.ModelAdmin):
+	inlines = [PlayerInline]
+
+class CustomNpc(admin.ModelAdmin):
+	inlines = [PlayerInline]
+
+class CustomGovernment(admin.ModelAdmin):
+	inlines = [PlayerInline]
+
+
+admin.site.unregister(User)
+admin.site.register(User, CustomUser)
+admin.site.register(Npc, CustomNpc)
+admin.site.register(Government, CustomGovernment)

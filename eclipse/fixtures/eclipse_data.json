@@ -1,13 +1,5 @@
 [
 {
-  "model": "eclipse.shipcontainer",
-  "pk": 1,
-  "fields": {
-    "owner": 1,
-    "size": 50
-  }
-},
-{
   "model": "eclipse.stationcontainer",
   "pk": 1,
   "fields": {
@@ -25,9 +17,9 @@
 },
 {
   "model": "eclipse.government",
-  "pk": "Human Government",
+  "pk": 1,
   "fields": {
-    "race": "Human",
+    "homeworld": "Earth",
     "description": "Trumps America"
   }
 },
@@ -62,19 +54,9 @@
     "description": "Saves Lives - Human",
     "power": 50.0,
     "hull": 50.0,
-    "cargosize": 50,
+    "cargosize": 50.0,
     "engine": "ENG:POD-100",
     "weapon_bay": null
-  }
-},
-{
-  "model": "eclipse.player",
-  "pk": 1,
-  "fields": {
-    "user": null,
-    "npc": null,
-    "government": "Human Government",
-    "location": null
   }
 },
 {
@@ -83,36 +65,6 @@
   "fields": {
     "description": "Total Bros"
   }
-},
-{
-  "model": "eclipse.engine",
-  "pk": "ENG:POD-100",
-  "fields": {
-    "name": "Pod Engine",
-    "description": "Kinda sputters",
-    "power_req": 0.0,
-    "size_class": "POD",
-    "speed": 50.0,
-    "jump_distance": 0.0
-  }
-},
-{
-  "model": "eclipse.shiptype",
-  "pk": "Lifepod",
-  "fields": {
-    "description": "Saves Lives",
-    "size_class": "POD"
-  }
-},
-{
-  "model": "eclipse.sizeclass",
-  "pk": "POD",
-  "fields": {}
-},
-{
-  "model": "eclipse.solarsystem",
-  "pk": "Sol",
-  "fields": {}
 },
 {
   "model": "eclipse.station",
@@ -145,6 +97,48 @@
     "hull": 9000.0,
     "power": 9001.0
   }
+},
+{
+  "model": "eclipse.player",
+  "pk": 1,
+  "fields": {
+    "name": "Earth Government",
+    "race": "Human",
+    "user": null,
+    "npc": null,
+    "government": 1,
+    "location": null
+  }
+},
+{
+  "model": "eclipse.engine",
+  "pk": "ENG:POD-100",
+  "fields": {
+    "name": "Pod Engine",
+    "description": "Kinda sputters",
+    "power_req": 0.0,
+    "size_class": "POD",
+    "speed": 50.0,
+    "jump_distance": 0.0
+  }
+},
+{
+  "model": "eclipse.shiptype",
+  "pk": "Lifepod",
+  "fields": {
+    "description": "Saves Lives",
+    "size_class": "POD"
+  }
+},
+{
+  "model": "eclipse.sizeclass",
+  "pk": "POD",
+  "fields": {}
+},
+{
+  "model": "eclipse.solarsystem",
+  "pk": "Sol",
+  "fields": {}
 },
 {
   "model": "eclipse.stationclass",

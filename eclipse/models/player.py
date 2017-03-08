@@ -7,10 +7,18 @@ from eclipse.managers import ship_manager
 
 from .government import Government
 from .npc import Npc
+from .race import Race
 from .shipclass import ShipClass
 from .station import Station
 
 class Player(models.Model):
+	name = models.CharField(max_length=100)
+	race = models.OneToOneField(
+		'Race',
+		blank=True,
+		null=True,
+		on_delete=models.CASCADE
+	)	
 	user = models.OneToOneField(
 		User,
 		on_delete=models.CASCADE,
@@ -44,12 +52,20 @@ class Player(models.Model):
 			# Make a pod, put the user in it
 			pod = ShipClass.objects.get(pk="Lifepod")
 			location = Station.objects.get(pk=1)
-			# TODO: Replace all this hardcoded stuff with the Races home planet
-			new_ship = ship_manager.generate_ship(None, pod, 0, 0, 0, location)
+			# TODO: Don't hardcode race, let the player choose
+			#race = Race.objects.get(pk="Human")
+			#race_gov = race.player.
+			#homeworld = Planet.objects.get(pk=)
+			new_ship = ship_manager.generate_ship(
+				None,
+				pod,
+				location
+				)
 			new_ship.save()
 
 			# Save user
 			new_player = Player.objects.create(
+				name=sender.username,
 				user=instance,
 				location=new_ship
 			)
@@ -98,16 +114,13 @@ class Player(models.Model):
 		# Error if location is incorrect.
 		if self.npc or self.user and not self.location:
 			raise AttributeError('Requires location to be set if player is NPC or User')
-
-		if self.government:
-			self.location = None
 		
 		super(Player, self).save(*args, **kwargs)
 
 	def __unicode__(self):
 		if self.user:
-			return "User: " + self.user.username
+			return "User: " + self.name
 		if self.npc:
-			return "NPC: " + self.npc.name
+			return "NPC: " + self.name
 		if self.government:
-			return "Government: " + self.government.name
+			return "Government: " + self.name
