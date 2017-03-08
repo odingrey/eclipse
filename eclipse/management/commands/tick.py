@@ -9,17 +9,36 @@ class Command(BaseCommand):
 		ships = Ship.objects.all()
 		for ship in ships:
 			if ship.destination:
-				speed = ship.engine.speed
-				x = abs(ship.location.x - ship.destination.x)
-				y = abs(ship.location.y - ship.destination.y)
-				z = abs(ship.location.z - ship.destination.z)
-				traveldistance = abs(x + y + z)
-				
-				traveltime = math.floor(traveldistance / speed)
+				if ship.location.solar_system = ship.destination.solar_system:
+					travel_local(ship)
+				else:
+					travel_interstellar(ship)
 
-				# If it's less than a tick, it goes straight there
-				traveltime = 1 if traveltime == 0
 
-				ship.location.x = ship.location.x - int(x / traveltime)
-				ship.location.y = ship.location.y - int(y / traveltime)
-				ship.location.z = ship.location.y - int(z / traveltime)
+
+	def travel_local(ship):
+		lx = ship.location.x
+		ly = ship.location.y
+		lz = ship.location.z
+		dx = ship.destination.x
+		dy = ship.destination.y
+		xz = ship.destination.z
+		x = abs(dx - lx)
+		y = abs(dy - ly)
+		z = abs(dz - lz)
+		dist = math.sqrt((dx - lx) ** 2 + (dy - ly) ** 2 + (dz - lz) ** 2)
+		
+		traveltime = traveldistance / ship.engine.speed
+
+		# If traveltime is less than one, move straight to the point
+		if traveltime < 1:
+			ship.location = ship.destination
+			ship.destination = None
+		else:
+			ship.location.x += lx / traveltime
+			ship.location.y += ly / traveltime
+			ship.location.z += lz / traveltime
+		ship.save()
+
+	def travel_interstellar(ship):
+		pass
