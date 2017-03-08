@@ -3,7 +3,7 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from eclipse.managers import ship_manager
+from eclipse.management import ship_manager
 
 from .government import Government
 from .npc import Npc

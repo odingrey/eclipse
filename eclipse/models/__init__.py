@@ -1,7 +1,8 @@
 from .ammo import Crystal, Gas, Projectile, Rocket
 from .container import ShipContainer, StationContainer
-from .npc import Npc
 from .government import Government
+from .location import Location
+from .npc import Npc
 from .planet import Planet
 from .player import Player
 from .race import Race

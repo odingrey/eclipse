@@ -24,13 +24,30 @@
   }
 },
 {
-  "model": "eclipse.planet",
-  "pk": "Earth",
+  "model": "eclipse.location",
+  "pk": 1,
   "fields": {
     "solar_system": "Sol",
     "x": 100.0,
     "y": 100.0,
-    "z": 100.0,
+    "z": 100.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 2,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 200.0,
+    "y": 200.0,
+    "z": 200.0
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Earth",
+  "fields": {
+    "location": 1,
     "owner": 1
   }
 },
@@ -38,10 +55,7 @@
   "model": "eclipse.planet",
   "pk": "Mars",
   "fields": {
-    "solar_system": "Sol",
-    "x": 200.0,
-    "y": 200.0,
-    "z": 200.0,
+    "location": 2,
     "owner": 1
   }
 },
@@ -70,10 +84,7 @@
   "model": "eclipse.station",
   "pk": 1,
   "fields": {
-    "solar_system": "Sol",
-    "x": 100.0,
-    "y": 100.0,
-    "z": 100.0,
+    "location": 1,
     "name": "Earth Spacedoc",
     "owner": 1,
     "planet_location": "Earth",
@@ -86,10 +97,7 @@
   "model": "eclipse.station",
   "pk": 3,
   "fields": {
-    "solar_system": "Sol",
-    "x": 200.0,
-    "y": 200.0,
-    "z": 200.0,
+    "location": 2,
     "name": "Mars Spacedock",
     "owner": 1,
     "planet_location": "Mars",

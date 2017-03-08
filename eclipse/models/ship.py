@@ -1,6 +1,6 @@
 from django.db import models
 
-from eclipse.managers import container_manager
+from eclipse.management import container_manager
 
 from .spaceentity import SpaceEntity
 
@@ -10,6 +10,13 @@ class WeaponBay(models.Model):
 
 class Ship(SpaceEntity):
 	name = models.CharField(max_length=100)
+	destination = models.OneToOneField(
+		'Location',
+		blank=True,
+		null=True,
+		on_delete=models.CASCADE,
+		related_name='%(class)s_destination'
+	)
 	owner = models.ForeignKey(
 		'Player',
 		on_delete=models.CASCADE,
@@ -42,10 +49,7 @@ class Ship(SpaceEntity):
 	def save(self, *args, **kwargs):
 		# Set coords to docked location
 		if self.docked_location:
-			self.x = self.docked_location.x
-			self.y = self.docked_location.y
-			self.z = self.docked_location.z
-			self.solar_system = self.docked_location.solar_system
+			self.location = self.docked_location.location
 
 		self.size_class = self.ship_class.ship_type.size_class
 		self.hull = self.ship_class.hull
@@ -57,6 +61,7 @@ class Ship(SpaceEntity):
 			self.owner = self.owner
 			self.engine = self.ship_class.engine
 			self.weapon_bay = self.ship_class.weapon_bay
+			self.destination = None
 
 			# Create a container sized what the ship class wants, assign to ship
 			container_manager.generate_ship_container(

@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from eclipse.models.ammo import Crystal, Gas, Projectile, Rocket
 from eclipse.models.container import ShipContainer, StationContainer
 from eclipse.models.government import Government
+from eclipse.models.location import Location
 from eclipse.models.npc import Npc
 from eclipse.models.planet import Planet
 from eclipse.models.player import Player
@@ -26,6 +27,7 @@ admin.site.register(Projectile)
 admin.site.register(Rocket)
 admin.site.register(Engine)
 admin.site.register(Laser)
+admin.site.register(Location)
 admin.site.register(Plasma)
 admin.site.register(Kinetic)
 admin.site.register(Missile)
