@@ -1,6 +1,19 @@
 from django.db import models
 
+
+class LocationManager(models.Manager):
+	def generate_location(self, location):
+		# Copy given location
+		location = Location(location)
+		# Then unassign the pk, so it forces Django to assign a new one.
+		location.pk = None
+
+	def make_location(self, location):
+		return self.generate_location(self, location).save()
+
 class Location(models.Model):
+	objects = LocationManager()
+
 	solar_system = models.ForeignKey(
 		'SolarSystem',
 		on_delete=models.CASCADE

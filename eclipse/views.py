@@ -8,7 +8,6 @@ from django.http import JsonResponse
 
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
-from eclipse.management import ship_manager
 
 
 # API Calls

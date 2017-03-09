@@ -3,12 +3,12 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-from eclipse.management import ship_manager
 
 from .government import Government
 from .npc import Npc
 from .race import Race
 from .shipclass import ShipClass
+from .ship import Ship
 from .station import Station
 
 class Player(models.Model):
@@ -56,7 +56,7 @@ class Player(models.Model):
 			#race = Race.objects.get(pk="Human")
 			#race_gov = race.player.
 			#homeworld = Planet.objects.get(pk=)
-			new_ship = ship_manager.generate_ship(
+			new_ship = Ship.generate_ship(
 				None,
 				pod,
 				location
@@ -69,7 +69,7 @@ class Player(models.Model):
 				user=instance,
 				location=new_ship
 			)
-			ship_manager.set_owner(new_ship, new_player)
+			Ship.set_owner(new_ship, new_player)
 
 	# Save the player info whenever a user object is saved
 	@receiver(post_save, sender=User)
