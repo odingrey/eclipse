@@ -1,7 +1,8 @@
 from django.db import models
 
 
-from .container import Container
+from .container import ShipContainer
+from .location import Location
 from .spaceentity import SpaceEntity
 
 
@@ -9,30 +10,31 @@ class WeaponBay(models.Model):
 	pass
 
 class ShipManager(models.Manager):
-	def generate_ship(self, owner, ship_class, location):
+	def create(self, owner, ship_class, station_location):
 		ship = Ship(
 			owner = owner,
 			ship_class = ship_class,
-			docked_location = location,
+			docked_location = station_location,
 			engine = ship_class.engine,
 			weapon_bay = ship_class.weapon_bay,
-			location = Location.generate_location(location),
-			destination = Location.generate_location(location),
+			location = Location.objects.create(station_location.location).save(),
+			destination = Location.objects.create(station_location.location).save()
 		)
+	
+		return ship
+
+	def make(self, owner, ship_class, station_location):
+		ship = self.create(owner, ship_class, station_location)
 		# Create a container sized what the ship class wants, assign to ship
-		Container.generate_ship_container(
+		container = ShipContainer.objects.create(
 			owner=owner,
 			size=ship_class.cargosize,
 			ship=ship
 		)
+		ship.save()
+		container.save()
 		return ship
 
-	def set_owner(self, owner):
-		self.owner = owner
-		self.save()
-
-	def make_ship(self, owner, ship_class, location):
-		return self.generate_ship(owner, ship_class, location).save()
 
 class Ship(SpaceEntity):
 	objects = ShipManager()
@@ -79,11 +81,12 @@ class Ship(SpaceEntity):
 		if self.docked_location:
 			self.location = self.docked_location.location
 
-		self.size_class = self.ship_class.ship_type.size_class
-		self.hull = self.ship_class.hull
-		self.power = self.ship_class.power
-
 		super(Ship, self).save(*args, **kwargs)
+
+
+	def set_owner(self, owner):
+		self.owner = owner
+		self.save()
 
 
 	def __unicode__(self):

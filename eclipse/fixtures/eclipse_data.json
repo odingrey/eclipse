@@ -88,9 +88,7 @@
     "name": "Earth Spacedoc",
     "owner": 1,
     "planet_location": "Earth",
-    "station_class": "Planetary",
-    "hull": 9001.0,
-    "power": 9000.0
+    "station_class": "Planetary"
   }
 },
 {
@@ -101,9 +99,7 @@
     "name": "Mars Spacedock",
     "owner": 1,
     "planet_location": "Mars",
-    "station_class": "Planetary",
-    "hull": 9000.0,
-    "power": 9001.0
+    "station_class": "Planetary"
   }
 },
 {
@@ -115,7 +111,7 @@
     "user": null,
     "npc": null,
     "government": 1,
-    "location": null
+    "current_ship": null
   }
 },
 {

@@ -37,7 +37,7 @@ class Player(models.Model):
 		blank=True,
 		null=True
 	)
-	location = models.ForeignKey(
+	current_ship = models.ForeignKey(
 		'Ship',
 		blank=True,
 		null=True,
@@ -56,20 +56,20 @@ class Player(models.Model):
 			#race = Race.objects.get(pk="Human")
 			#race_gov = race.player.
 			#homeworld = Planet.objects.get(pk=)
-			new_ship = Ship.generate_ship(
-				None,
-				pod,
-				location
+			new_ship = Ship.objects.make(
+				owner=None,
+				ship_class=pod,
+				station_location=location
 				)
 			new_ship.save()
 
 			# Save user
 			new_player = Player.objects.create(
-				name=sender.username,
+				name=instance.username,
 				user=instance,
-				location=new_ship
+				current_ship=new_ship
 			)
-			Ship.set_owner(new_ship, new_player)
+			new_ship.set_owner(new_player)
 
 	# Save the player info whenever a user object is saved
 	@receiver(post_save, sender=User)
@@ -112,8 +112,8 @@ class Player(models.Model):
 			raise AttributeError('Requires User, NPC or Government')
 
 		# Error if location is incorrect.
-		if self.npc or self.user and not self.location:
-			raise AttributeError('Requires location to be set if player is NPC or User')
+		if self.npc or self.user and not self.current_ship:
+			raise AttributeError('Requires current_ship to be set if player is NPC or User')
 		
 		super(Player, self).save(*args, **kwargs)
 

@@ -2,14 +2,11 @@ from django.db import models
 
 
 class LocationManager(models.Manager):
-	def generate_location(self, location):
-		# Copy given location
-		location = Location(location)
-		# Then unassign the pk, so it forces Django to assign a new one.
+	def create(self, location):
+		# Unassign the pk, so it forces Django to assign a new one.
 		location.pk = None
+		return location
 
-	def make_location(self, location):
-		return self.generate_location(self, location).save()
 
 class Location(models.Model):
 	objects = LocationManager()
