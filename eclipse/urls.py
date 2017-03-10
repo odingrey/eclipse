@@ -17,13 +17,14 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', login, name='login'),
     url(r'^logout/$', logout),
+    url(r'^move/$', views.move),
 	url(r'^register/', CreateView.as_view(
 		template_name='registration/register.html',
 		form_class=UserCreationForm,
 		success_url='/'
 	)),
 	url(r'^pasword_reset/$', views.password_reset, name='password_reset'),
-	url(r'^settings/$', views.settings),
+	#url(r'^settings/$', views.settings),
 	url(r'^welcome/$', TemplateView.as_view(
 		template_name='welcome.html'
 	)),
@@ -31,4 +32,5 @@ urlpatterns = [
 
 	# API Calls
 	#url(r'^buy_ship/$', views.addTest),
+	url(r'^move_ship/$', views.move_ship),
 ]

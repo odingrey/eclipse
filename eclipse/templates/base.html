@@ -1,25 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="static/css/base.css" />
-    <script src="static/bower_components/jquery/dist/jquery.js"></script>
-    <script src="static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <link rel="stylesheet" type="text/css" href="static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/base.css" />
+    <script src="/static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/static/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+    <script src="/static/js/sidebar.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/sidebar.css">
     <title>{% block title %}Eclipse{% endblock %}</title>
 </head>
 
-<body>
-	<div class="col-sm-4">
-	{% block sidebar %}
-		<ul>
-		<li><a href="/">Home</a></li>
-		<li><a href="/logout">Logout</a></li>
-		</ul>
-	{% endblock %}
-	</div>
-	<div class="col-sm-8">
-		{% block content %}{% endblock %}
-	</div>
+<div class="wrapper">
+    <div class="row row-offcanvas row-offcanvas-left">
+        <!-- sidebar -->
+        {% block sidebar %}
+        <div class="column col-sm-3 col-xs-1 sidebar-offcanvas" id="sidebar">
+            <ul class="nav" id="menu">
+			        <li class="sidebar-brand">
+			        <center>
+		            <div id="userinfo">
+		            
+									Username: {{request.user.player.name}}<br>
+									Credits : {{request.user.player.credits}}<br>
+									Ship: {{request.user.player.current_ship.name}}<br>
+									Location: {{request.user.player.current_ship.location}}<br>
+									
+								</div>
+								</center>
+							<hr>
+			        </li>
+                <li><a href="/"><i class="glyphicon glyphicon-home"></i> <span class="collapse in hidden-xs">Home</span></a></li>
+                <li><a href="/move"><i class="glyphicon glyphicon-road"></i> <span class="collapse in hidden-xs">Move</span></a></li>
+                <li><a href="/logout"><i class="glyphicon glyphicon-remove"></i> <span class="collapse in hidden-xs">Logout</span></a></li>
+            </ul>
+        </div>
+        <!-- /sidebar -->
+        {% endblock %}
+
+        <!-- main right col -->
+        <div class="column col-sm-9 col-xs-11" id="main">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</div>
+
+
+
+
+
 </body>
 </html
 

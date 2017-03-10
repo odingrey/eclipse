@@ -12,6 +12,7 @@ class WeaponBay(models.Model):
 class ShipManager(models.Manager):
 	def create(self, owner, ship_class, station_location):
 		ship = Ship(
+			name = ship_class.name,
 			owner = owner,
 			ship_class = ship_class,
 			docked_location = station_location,

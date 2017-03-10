@@ -33,6 +33,13 @@ def loginUser(request):
 		else:
 			return render(request, 'login.html')
 
+@login_required
+def move_ship(request):
+	ship = request.user.player.current_ship
+	ship.move_ship(request.location)
+	ship.save()
+	return HttpResponse('202')
+
 ################################  
 @login_required
 def addTest(request):
@@ -49,22 +56,12 @@ def addTest(request):
 	
 @login_required
 def main(request):
-	return render(request, 'main.html')
+	response = {'username': request.user.player.name}
+	return render(request, 'main.html', response)
 
 def password_reset(request):
 	return render(request,'password_reset.html')
 
 @login_required
-def settings(request):
-	if request.user.is_authenticated():
-		if request.method == 'POST':
-			profile_form = UserProfile(data=request.POST, instance=request.user)
-			if profile_form.is_valid():
-				profile_form.save()
-			return HttpResponseRedirect('/')
-		else:
-			profile_form = UserProfile();
-			return render(request, 'settings.html', {'profile_form': profile_form})
-	return HttpResponse(status = 401) # Not Authenticated
-
-
+def move(request):
+	return render(request, 'move.html')

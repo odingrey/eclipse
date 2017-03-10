@@ -13,6 +13,7 @@ from .station import Station
 
 class Player(models.Model):
 	name = models.CharField(max_length=100)
+	credits = models.IntegerField(default=0)
 	race = models.OneToOneField(
 		'Race',
 		blank=True,
