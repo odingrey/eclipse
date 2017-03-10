@@ -50,7 +50,6 @@ def move_ship(request):
 
 	station = get_object_or_404(Station, pk=request.POST['location'])
 	location = station.location
-	print location
 	ship = request.user.player.current_ship
 	ship.move(location)
 	return HttpResponse(HTML_CODES['ACCEPTED'])
@@ -62,7 +61,6 @@ def addTest(request):
 		newShip = ships.create_test(request.user)
 		return HttpResponse(HTML_CODES['ACCEPTED'])
 	except e:
-		print e
 		return HttpResponse(HTML_CODES['ERROR'])
 ###############################
 
