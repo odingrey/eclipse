@@ -28,7 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = ['45.56.88.91']
 if DEBUG:
     ALLOWED_HOSTS.append('127.0.0.1')
-
+else:
+    SECRET_KEY = os.environ['SECRET_KEY']
 
 # Application definition
 

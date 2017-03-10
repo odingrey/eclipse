@@ -1,27 +1,34 @@
 from django.contrib.auth.models import User
 from django.db import models
 
-from .spaceentity import SpaceEntity
 from .container import StationContainer
+from .location import Location
+from .spaceentity import SpaceEntity
+
 
 
 class ShipManager(models.Manager):
-	def create(self, owner, station_class, location, name=None, planet_location=None):
+	def create(self, owner, station_class, location=None, name=None, planet_location=None):
+		if not location and not planet_location:
+			raise AttributeError('Must have either location or planet_location')
+
+		if planet_location:
+			location = Location.objects.create(planet_location.location)
+
 		station = Station(
 			name = name,
-			location = location,
 			owner = owner,
 			station_class = station_class,
+			location = location,
+			planet_location = location
 		)
 
-		# Set location
-	
 		# Create a container sized what the ship class wants, assign to ship
 		StationContainer.objects.create(
 			owner=owner,
 			station=station
 		)
-		return station
+		return station.save()
 
 
 class Station(SpaceEntity):
@@ -48,6 +55,13 @@ class Station(SpaceEntity):
 
 	def add_to_planet(self, planet):
 		self.planet_location = planet
+
+	def save(self, *args, **kwargs):
+		# This is here literally just so I can add stations in the admin console easier
+
+		if self.planet_location:
+			self.location = Location.objects.create(self.planet_location.location)
+		super(Station, self).save(*args, **kwargs)
 
 
 	def __unicode__(self):

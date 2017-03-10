@@ -22,8 +22,6 @@ class Location(models.Model):
 
 
 	def move(self, location):
-		print "HERE"
-		print location.x
 		self.x = location.x
 		self.y = location.y
 		self.z = location.z

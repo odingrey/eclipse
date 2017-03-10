@@ -44,6 +44,194 @@
   }
 },
 {
+  "model": "eclipse.location",
+  "pk": 3,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 100.0,
+    "y": 100.0,
+    "z": 100.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 4,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 200.0,
+    "y": 200.0,
+    "z": 200.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 5,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 50.0,
+    "y": 50.0,
+    "z": 50.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 6,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 75.0,
+    "y": 75.0,
+    "z": 75.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 7,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 150.0,
+    "y": 150.0,
+    "z": 150.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 8,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 210.0,
+    "y": 210.0,
+    "z": 210.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 9,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 250.0,
+    "y": 250.0,
+    "z": 250.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 10,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 320.0,
+    "y": 320.0,
+    "z": 320.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 11,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 400.0,
+    "y": 400.0,
+    "z": 400.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 12,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 420.0,
+    "y": 420.0,
+    "z": 420.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 13,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 50.0,
+    "y": 50.0,
+    "z": 50.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 14,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 75.0,
+    "y": 75.0,
+    "z": 75.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 15,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 150.0,
+    "y": 150.0,
+    "z": 150.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 16,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 210.0,
+    "y": 210.0,
+    "z": 210.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 17,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 250.0,
+    "y": 250.0,
+    "z": 250.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 18,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 320.0,
+    "y": 320.0,
+    "z": 320.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 19,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 400.0,
+    "y": 400.0,
+    "z": 400.0
+  }
+},
+{
+  "model": "eclipse.location",
+  "pk": 20,
+  "fields": {
+    "solar_system": "Sol",
+    "x": 420.0,
+    "y": 420.0,
+    "z": 420.0
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Ceres",
+  "fields": {
+    "location": 7,
+    "owner": 1
+  }
+},
+{
   "model": "eclipse.planet",
   "pk": "Earth",
   "fields": {
@@ -53,10 +241,73 @@
 },
 {
   "model": "eclipse.planet",
+  "pk": "Jupiter",
+  "fields": {
+    "location": 8,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
   "pk": "Mars",
   "fields": {
     "location": 2,
     "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Mercury",
+  "fields": {
+    "location": 5,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Neptune",
+  "fields": {
+    "location": 11,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Pluto",
+  "fields": {
+    "location": 12,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Saturn",
+  "fields": {
+    "location": 9,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Uranus",
+  "fields": {
+    "location": 10,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.planet",
+  "pk": "Venus",
+  "fields": {
+    "location": 6,
+    "owner": 1
+  }
+},
+{
+  "model": "eclipse.race",
+  "pk": "Human",
+  "fields": {
+    "description": "Total Bros"
   }
 },
 {
@@ -74,17 +325,10 @@
   }
 },
 {
-  "model": "eclipse.race",
-  "pk": "Human",
-  "fields": {
-    "description": "Total Bros"
-  }
-},
-{
   "model": "eclipse.station",
   "pk": 1,
   "fields": {
-    "location": 1,
+    "location": 3,
     "name": "Earth Spacedoc",
     "owner": 1,
     "planet_location": "Earth",
@@ -95,10 +339,98 @@
   "model": "eclipse.station",
   "pk": 3,
   "fields": {
-    "location": 2,
+    "location": 4,
     "name": "Mars Spacedock",
     "owner": 1,
     "planet_location": "Mars",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 12,
+  "fields": {
+    "location": 13,
+    "name": "Mercury Station",
+    "owner": 1,
+    "planet_location": "Mercury",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 13,
+  "fields": {
+    "location": 14,
+    "name": "Venus Station",
+    "owner": 1,
+    "planet_location": "Venus",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 14,
+  "fields": {
+    "location": 15,
+    "name": "Ceres Station",
+    "owner": 1,
+    "planet_location": "Ceres",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 15,
+  "fields": {
+    "location": 16,
+    "name": "Jupiter Station",
+    "owner": 1,
+    "planet_location": "Jupiter",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 16,
+  "fields": {
+    "location": 17,
+    "name": "Saturn Station",
+    "owner": 1,
+    "planet_location": "Saturn",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 17,
+  "fields": {
+    "location": 18,
+    "name": "Uranus Station",
+    "owner": 1,
+    "planet_location": "Uranus",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 18,
+  "fields": {
+    "location": 19,
+    "name": "Neptune Station",
+    "owner": 1,
+    "planet_location": "Neptune",
+    "station_class": "Planetary"
+  }
+},
+{
+  "model": "eclipse.station",
+  "pk": 19,
+  "fields": {
+    "location": 20,
+    "name": "Pluto Station",
+    "owner": 1,
+    "planet_location": "Pluto",
     "station_class": "Planetary"
   }
 },
@@ -107,6 +439,7 @@
   "pk": 1,
   "fields": {
     "name": "Earth Government",
+    "credits": 0,
     "race": "Human",
     "user": null,
     "npc": null,
