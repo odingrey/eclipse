@@ -1,1 +1,1 @@
-0 * * * * ~/eclipse/manage.py tick
+0 * * * * $ECLIPSE_ENV/manage.py tick

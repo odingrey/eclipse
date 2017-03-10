@@ -64,5 +64,5 @@ class Station(SpaceEntity):
 		super(Station, self).save(*args, **kwargs)
 
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.owner) + ": " + self.name

@@ -42,7 +42,7 @@ class Container(models.Model):
 		self.owner = owner
 		self.save()
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.pk) + ": " + str(self.owner)		
 
 class ShipContainer(Container):

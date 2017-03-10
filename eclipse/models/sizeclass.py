@@ -20,6 +20,6 @@ class SizeClass(models.Model):
 		unique=True,
 	)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.name
 	

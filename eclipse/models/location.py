@@ -28,5 +28,5 @@ class Location(models.Model):
 		self.solar_system = location.solar_system
 		self.save()
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.solar_system) + " x: " + str(self.x) + " y: " + str(self.y) + " z: " + str(self.z)

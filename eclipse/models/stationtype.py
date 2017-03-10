@@ -11,5 +11,5 @@ class StationType(models.Model):
 	name = models.CharField(max_length=30, primary_key=True, unique=True)
 	description = models.CharField(max_length=300, default="")
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.name

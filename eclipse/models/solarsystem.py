@@ -8,5 +8,5 @@ class SolarSystem(models.Model):
 	objects = SolarSystemManager()
 	name = models.CharField(max_length=30, primary_key=True, unique=True)
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.name

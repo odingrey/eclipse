@@ -118,7 +118,7 @@ class Player(models.Model):
 		
 		super(Player, self).save(*args, **kwargs)
 
-	def __unicode__(self):
+	def __str__(self):
 		if self.user:
 			return "User: " + self.name
 		if self.npc:

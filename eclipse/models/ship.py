@@ -89,5 +89,5 @@ class Ship(SpaceEntity):
 		self.save()
 
 
-	def __unicode__(self):
+	def __str__(self):
 		return str(self.owner) + ": " + self.ship_class.name
