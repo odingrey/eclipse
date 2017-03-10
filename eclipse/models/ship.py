@@ -18,16 +18,13 @@ class ShipManager(models.Manager):
 			docked_location = station_location,
 			engine = ship_class.engine,
 			weapon_bay = ship_class.weapon_bay,
-			location = Location.objects.create(station_location.location).save(),
-			destination = Location.objects.create(station_location.location).save()
+			location = Location.objects.create(station_location.location),
+			destination = Location.objects.create(station_location.location)
 		)
 	
 		return ship
-
-	def make(self, owner, ship_class, station_location):
-		ship = self.create(owner, ship_class, station_location)
 		# Create a container sized what the ship class wants, assign to ship
-		container = ShipContainer.objects.create(
+		container = ShipContainer.objects.generate(
 			owner=owner,
 			size=ship_class.cargosize,
 			ship=ship
@@ -43,8 +40,6 @@ class Ship(SpaceEntity):
 	name = models.CharField(max_length=100)
 	destination = models.OneToOneField(
 		'Location',
-		blank=True,
-		null=True,
 		on_delete=models.CASCADE,
 		related_name='%(class)s_destination'
 	)
@@ -83,6 +78,10 @@ class Ship(SpaceEntity):
 			self.location = self.docked_location.location
 
 		super(Ship, self).save(*args, **kwargs)
+
+	def move(self, location):
+		self.destination.move(location)
+		self.save()
 
 
 	def set_owner(self, owner):

@@ -2,12 +2,21 @@ from django.db import models
 
 
 class ShipContainerManager(models.Manager):
-	def create(self, owner, size, ship):
+	def generate(self, owner, size, ship):
 		return ShipContainer(
 			owner=owner,
 			size=size,
 			ship=ship
 		)
+
+	def create(self, owner, size, ship):
+		container = ShipContainer(
+			owner=owner,
+			size=size,
+			ship=ship
+		)
+		container.save()
+		return container
 
 class StationContainerManager(models.Manager):
 	def create(self, owner, station):

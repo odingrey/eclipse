@@ -1,4 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-Move screen
+	<form action = "/move_ship/" method="post">
+		{% csrf_token %}
+		<select name="location">
+		{% for station in stations %}
+			<option value="{{station.pk}}">{{station.name}}</option>
+		{% endfor %}
+		</select>
+		<input type="submit" value="Move" />
+	</form>
 {% endblock %}

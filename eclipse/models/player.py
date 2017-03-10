@@ -57,7 +57,7 @@ class Player(models.Model):
 			#race = Race.objects.get(pk="Human")
 			#race_gov = race.player.
 			#homeworld = Planet.objects.get(pk=)
-			new_ship = Ship.objects.make(
+			new_ship = Ship.objects.create(
 				owner=None,
 				ship_class=pod,
 				station_location=location
