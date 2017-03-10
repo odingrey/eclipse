@@ -4,9 +4,14 @@ from django.db import models
 class LocationManager(models.Manager):
 	def create(self, location):
 		# Unassign the pk, so it forces Django to assign a new one.
-		location.pk = None
-		location.save()
-		return location
+		new_location = Location(
+			x = location.x,
+			y = location.y,
+			z = location.z,
+			solar_system = location.solar_system
+		)
+		new_location.save()
+		return new_location
 
 
 class Location(models.Model):

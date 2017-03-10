@@ -74,8 +74,8 @@ class Ship(SpaceEntity):
 
 	def save(self, *args, **kwargs):
 		# Set coords to docked location
-		if self.docked_location:
-			self.location = self.docked_location.location
+#		if self.docked_location:
+#			self.location.move(self.docked_location.location)
 
 		super(Ship, self).save(*args, **kwargs)
 
