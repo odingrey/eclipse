@@ -1,1 +1,1 @@
-./manage.py dumpdata --indent 2 eclipse --exclude eclipse.ship > test.json
+./manage.py dumpdata --indent 2 eclipse --exclude eclipse.ship > eclipse/fixtures/eclipse_data.json
