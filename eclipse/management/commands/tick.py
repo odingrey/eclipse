@@ -23,10 +23,10 @@ class Command(BaseCommand):
 		dx = ship.destination.x
 		dy = ship.destination.y
 		dz = ship.destination.z
-		x = abs(dx - lx)
-		y = abs(dy - ly)
-		z = abs(dz - lz)
-		dist = math.sqrt((dx - lx) ** 2 + (dy - ly) ** 2 + (dz - lz) ** 2)
+		x = dx - lx
+		y = dy - ly
+		z = dz - lz
+		dist = math.sqrt((x) ** 2 + (y) ** 2 + (z) ** 2)
 		
 		traveltime = dist / ship.engine.speed
 
@@ -35,9 +35,9 @@ class Command(BaseCommand):
 			ship.location.move(ship.destination)
 			ship.destination.save()
 		else:
-			ship.location.x += lx / traveltime
-			ship.location.y += ly / traveltime
-			ship.location.z += lz / traveltime
+			ship.location.x += x / traveltime
+			ship.location.y += y / traveltime
+			ship.location.z += z / traveltime
 			ship.location.save()
 		ship.save()
 
