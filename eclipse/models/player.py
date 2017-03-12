@@ -4,6 +4,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+from .container import ShipContainer
 from .government import Government
 from .npc import Npc
 from .race import Race
@@ -63,6 +64,11 @@ class Player(models.Model):
 				station_location=location
 				)
 			new_ship.save()
+			container = ShipContainer.objects.create(
+				owner=owner,
+				size=pod.cargosize,
+				ship=new_ship
+			)
 
 			# Save user
 			new_player = Player.objects.create(
@@ -71,6 +77,7 @@ class Player(models.Model):
 				current_ship=new_ship
 			)
 			new_ship.set_owner(new_player)
+			
 
 	# Save the player info whenever a user object is saved
 	@receiver(post_save, sender=User)
