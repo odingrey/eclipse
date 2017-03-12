@@ -8,7 +8,7 @@ class Command(BaseCommand):
 	def handle(self, *args, **options):
 		ships = Ship.objects.all()
 		for ship in ships:
-			if ship.location is not ship.destination:
+			if not ship.location.isEqualTo(ship.destination):
 				if ship.location.solar_system == ship.destination.solar_system:
 					self.travel_local(ship)
 				else:
@@ -33,7 +33,7 @@ class Command(BaseCommand):
 		# If traveltime is less than one, move straight to the point
 		if traveltime < 1:
 			ship.location.move(ship.destination)
-			ship.destination.save()
+			ship.location.save()
 		else:
 			ship.location.x += lx / traveltime
 			ship.location.y += ly / traveltime

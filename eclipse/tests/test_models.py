@@ -61,7 +61,7 @@ class LocationTestCase(TestCase):
 
 
 class ShipTestCase(TestCase):
-	fixtures = ['eclipse_data']		
+	fixtures = ['eclipse_data']
 
 	def testCreate(self):
 		pod = ShipClass.objects.get(pk="Lifepod")
