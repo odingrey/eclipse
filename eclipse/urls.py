@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.conf.urls.static import static
 from django.views.generic import TemplateView
+from eclipse import api
 from eclipse import views
 from eclipse import settings
 
@@ -13,11 +14,10 @@ admin.autodiscover()
 
 
 urlpatterns = [
-	url(r'^$', views.main),
-    url(r'^admin/', admin.site.urls),
-    url(r'^login/$', login, name='login'),
-    url(r'^logout/$', logout),
-    url(r'^move/$', views.move),
+	# Django default stuff
+  url(r'^admin/', admin.site.urls),
+  url(r'^login/$', login, name='login'),
+  url(r'^logout/$', logout),
 	url(r'^register/', CreateView.as_view(
 		template_name='registration/register.html',
 		form_class=UserCreationForm,
@@ -30,7 +30,17 @@ urlpatterns = [
 	)),
 	url('^accounts/', include('django.contrib.auth.urls')),   # Remove this bit after a while, useful for now
 
+
+
+
+	# Templates
+	url(r'^$', views.main),
+	url(r'^move/$', views.move),
+
+
+
+
 	# API Calls
 	#url(r'^buy_ship/$', views.addTest),
-	url(r'^move_ship/$', views.move_ship),
+	url(r'^move_ship/$', api.move_ship),
 ]

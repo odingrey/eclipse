@@ -33,5 +33,8 @@ class Location(models.Model):
 		self.solar_system = location.solar_system
 		self.save()
 
+	def isEqualTo(self, location):
+		return self.x == location.x and self.y == location.y and self.z == location.z and self.solar_system == location.solar_system
+
 	def __str__(self):
 		return str(self.solar_system) + " x: " + str(self.x) + " y: " + str(self.y) + " z: " + str(self.z)
