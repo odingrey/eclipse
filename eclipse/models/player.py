@@ -64,17 +64,16 @@ class Player(models.Model):
 				station_location=location
 				)
 			new_ship.save()
-			container = ShipContainer.objects.create(
-				owner=owner,
-				size=pod.cargosize,
-				ship=new_ship
-			)
-
 			# Save user
 			new_player = Player.objects.create(
 				name=instance.username,
 				user=instance,
 				current_ship=new_ship
+			)
+			container = ShipContainer.objects.create(
+				owner=new_player,
+				size=pod.cargosize,
+				ship=new_ship
 			)
 			new_ship.set_owner(new_player)
 			
