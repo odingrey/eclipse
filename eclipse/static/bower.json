@@ -1,0 +1,22 @@
+{
+  "name": "eclipse",
+  "homepage": "https://github.com/odingrey/eclipse",
+  "authors": [
+    "Mike <odingrey@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "components-font-awesome": "^4.7.0",
+    "ng-morris-js": "^0.3.5"
+  }
+}
