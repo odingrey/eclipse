@@ -17,6 +17,7 @@
   "dependencies": {
     "bootstrap": "4.0.0-alpha.6",
     "components-font-awesome": "^4.7.0",
-    "ng-morris-js": "^0.3.5"
+    "ng-morris-js": "^0.3.5",
+    "knockout": "^3.4.2"
   }
 }
