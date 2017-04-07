@@ -4,9 +4,6 @@
   "authors": [
     "Mike <odingrey@gmail.com>"
   ],
-  "description": "",
-  "main": "",
-  "license": "MIT",
   "ignore": [
     "**/.*",
     "node_modules",

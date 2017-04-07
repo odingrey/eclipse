@@ -42,5 +42,7 @@ urlpatterns = [
 
 	# API Calls
 	#url(r'^buy_ship/$', views.addTest),
+	url(r'^get_player/$', api.get_player),
+	url(r'^get_ships/$', api.get_ships),
 	url(r'^move_ship/$', api.move_ship),
 ]
